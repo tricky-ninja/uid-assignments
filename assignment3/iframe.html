@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Website</title>
-  <link rel="stylesheet" href="style2.css">
+    <title>iFrame Example</title>
 </head>
 <body>
-    <header>
-        <h1>Club Website</h1>
-    </header>
+    <h2>Iframe</h2>
     
-    <div class="container">
-        <div class="sidebar">
-            <h2>Links</h2>
-            <ul>
-                <li><a href="https://example.com" target="my_area">Link 1</a></li>
-                <li><a href="index.html" target="my_area">Link 2</a></li>
-                <li><a href="https://test.com" target="my_area">Link 3</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h2>About the Club</h2>
-            <p>Details about the club go here.</p>
-            <iframe name="my_area"></iframe>
-        </div>
-    </div>
+    <iframe name="my_area" width="400" height="400" scrolling="yes"></iframe>
+    <br>
     
-    <div class="gallery">
-        <img src="image1.jpg" alt="">
-        <img src="image2.jpg" alt="">
-        <img src="image3.jpg" alt="">
-    </div>
+    <iframe name="my_area" width="400" height="400" scrolling="yes" src="me.jpg"></iframe>
+    <br>
     
-    <div class="table-container">
-        <table border="1">
-            <tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>
-            <tr><td>xx</td><td>yy</td><td>22</td></tr>
-            <tr><td>tt</td><td>ss</td><td>21</td></tr>
-        </table>
-    </div>
+    <a href="https://www.example.com" target="my_area">Open Example</a>
+    <br>
+    <a href="https://www.google.com" target="my_area">Open Google</a>
+    <br>
     
-    <footer>
-        <p>&copy; 2025 Amrita Viswavidyapeetham. All rights reserved.</p>
-    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                let testIframe = document.createElement('iframe');
+                testIframe.src = this.href;
+                document.body.appendChild(testIframe);
+                setTimeout(() => {
+                    if (testIframe.contentDocument || testIframe.contentWindow.document) {
+                        testIframe.remove();
+                    } else {
+                        event.preventDefault();
+                        window.open(this.href, '_blank');
+                    }
+                }, 500);
+            });
+        });
+    </script>
+    
+    <p>&copy; 2025 Amrita Viswavidyapeetham. All rights reserved.</p>
 </body>
 </html>

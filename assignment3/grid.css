@@ -1,0 +1,127 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto 1.5fr;
+    width: 60%;
+    margin: auto;
+}
+
+span {
+    background: green;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.first {
+    grid-column: span 3;
+}
+
+.big {
+    height: 190px;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 2px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background: black;
+}
+
+.grid2 div {
+    background: pink;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.grid2 div:first-child {
+    grid-column: span 3;
+}
+
+.grid2 div:nth-child(2) {
+    grid-column: span 3;
+    height: 200px;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 2px;
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    background: black;
+}
+
+.grid3 div {
+    background: pink;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.grid3 div:first-child {
+    grid-column: span 2;
+}
+
+.grid3 div:nth-child(4) {
+    grid-column: span 2;
+}
+
+.grid4 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    gap: 2px;
+    width: 80%;
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    background: black;
+}
+
+.grid4 div {
+    background: #ADFF2F;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.grid4 div:first-child {
+    grid-column: span 2;
+}
+
+.grid4 div:nth-child(2) {
+    grid-row: span 2;
+}
+
+.grid4 div:nth-child(3) {
+    grid-row: span 1;
+}
+
+.grid4 div:nth-child(4) {
+    grid-row: span 1;
+}

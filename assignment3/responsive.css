@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+/* When screen width reaches 1500px, set table column width */
+@media (min-width: 1500px) {
+    table {
+        width: 100%;
+    }
+    th, td {
+        width: 30%;
+    }
+    th:nth-child(2), td:nth-child(2) {
+        width: 40%;
+    }
+}
+
+/* When screen width reaches 600px, display table as stacked */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+    th {
+        display: none;
+    }
+    tr {
+        margin-bottom: 10px;
+        border: 1px solid black;
+    }
+    td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid black;
+    }
+}
