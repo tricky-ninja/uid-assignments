@@ -1,0 +1,73 @@
+<!-- Task 1: Demonstrate DOM manipulation, predefined objects, OOP, HTML element, variables, scope, operators, functions, conditionals, looping -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1 Example</title>
+</head>
+<body>
+  <h1 id="heading">Hello, World!</h1>
+  <button id="changeTextBtn">Change Text</button>
+  <ul id="itemList"></ul>
+
+  <script>
+    // Predefined object: console, Math, Date, etc.
+    console.log("Current Date and Time:", new Date());
+
+    // Variables and scope: var (function-scoped), let/const (block-scoped)
+    var globalVar = "I am a var variable (function-scoped)";
+    let blockVar = "I am a let variable (block-scoped)";
+    const PI = Math.PI; // constant
+
+    // Object-oriented: define a simple class
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+      }
+    }
+
+    // Instantiation of the class
+    const alice = new Person("Alice", 30);
+    console.log(alice.greet());
+
+    // Function with parameters and return
+    function multiply(a, b) {
+      return a * b;
+    }
+    console.log("2 × 3 =", multiply(2, 3));
+
+    // DOM manipulation: get element, change content
+    const headingEl = document.getElementById("heading");
+    const changeTextBtn = document.getElementById("changeTextBtn");
+    changeTextBtn.onclick = function () {
+      // Conditional statement
+      if (headingEl.textContent === "Hello, World!") {
+        headingEl.textContent = "Text Changed!";
+      } else {
+        headingEl.textContent = "Hello, World!";
+      }
+    };
+
+    // Looping statements: for loop to create list items
+    const itemList = document.getElementById("itemList");
+    for (let i = 1; i <= 5; i++) {
+      const li = document.createElement("li");
+      li.textContent = `Item ${i}`;
+      itemList.appendChild(li);
+    }
+
+    // Operators: arithmetic, comparison, logical
+    const x = 10;
+    const y = 3;
+    console.log("Arithmetic:", x + y, x - y, x * y, x / y, x % y);
+    console.log("Comparison:", x > y, x === y);
+    console.log("Logical:", (x > 5) && (y < 5), (x < 5) || (y < 5));
+
+    // HTML Element example: we created <h1>, <button>, <ul>, <li> above
+  </script>
+</body>
+</html>

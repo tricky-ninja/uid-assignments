@@ -1,0 +1,120 @@
+<!-- Task 6: Student registration form with validation and display in a table -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    #studentTable {
+      margin-top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Registration Form</h2>
+  <form id="registrationForm">
+    <label>
+      Name:
+      <input type="text" id="name" name="name" />
+    </label><br /><br />
+    <label>
+      Mobile No:
+      <input type="text" id="mobile" name="mobile" />
+    </label><br /><br />
+    <label>
+      State:
+      <input type="text" id="state" name="state" />
+    </label><br /><br />
+    <label>
+      Pin Code:
+      <input type="text" id="pincode" name="pincode" />
+    </label><br /><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  <table id="studentTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Mobile No</th>
+        <th>State</th>
+        <th>Pin Code</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Rows will be appended here -->
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Get form values
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const state = document.getElementById("state").value.trim();
+      const pincode = document.getElementById("pincode").value.trim();
+
+      // Validation
+      if (!name || !mobile || !state || !pincode) {
+        alert("All fields are required.");
+        return;
+      }
+
+      // Name: only alphabets (allow spaces)
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(name)) {
+        alert("Name must contain only alphabets and spaces.");
+        return;
+      }
+
+      // Mobile: exactly 10 digits
+      const mobileRegex = /^\d{10}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert("Mobile number must be exactly 10 digits.");
+        return;
+      }
+
+      // Pin Code: exactly 6 digits
+      const pincodeRegex = /^\d{6}$/;
+      if (!pincodeRegex.test(pincode)) {
+        alert("Pin code must be exactly 6 digits.");
+        return;
+      }
+
+      // If validation passes, display in table
+      const tableBody = document.getElementById("tableBody");
+      const newRow = document.createElement("tr");
+
+      const tdName = document.createElement("td");
+      tdName.textContent = name;
+      newRow.appendChild(tdName);
+
+      const tdMobile = document.createElement("td");
+      tdMobile.textContent = mobile;
+      newRow.appendChild(tdMobile);
+
+      const tdState = document.createElement("td");
+      tdState.textContent = state;
+      newRow.appendChild(tdState);
+
+      const tdPincode = document.createElement("td");
+      tdPincode.textContent = pincode;
+      newRow.appendChild(tdPincode);
+
+      tableBody.appendChild(newRow);
+      document.getElementById("studentTable").style.display = "table";
+
+      // Clear form
+      document.getElementById("registrationForm").reset();
+    });
+  </script>
+</body>
+</html>

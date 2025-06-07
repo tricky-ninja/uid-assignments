@@ -1,0 +1,23 @@
+<!-- Task 8: Toggle button text between "Show" and "Hide" on click -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Toggle Show/Hide</title>
+</head>
+<body>
+  <button id="toggleBtn">Show</button>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    toggleBtn.addEventListener("click", function () {
+      if (toggleBtn.textContent === "Show") {
+        toggleBtn.textContent = "Hide";
+      } else {
+        toggleBtn.textContent = "Show";
+      }
+    });
+  </script>
+</body>
+</html>

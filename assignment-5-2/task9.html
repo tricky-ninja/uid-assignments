@@ -1,0 +1,25 @@
+<!-- Task 9: Reveal button names when clicked -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Reveal Button Names</title>
+</head>
+<body>
+  <button class="reveal-btn" name="buttonA">Button A</button>
+  <button class="reveal-btn" name="buttonB">Button B</button>
+  <button class="reveal-btn" name="buttonC">Button C</button>
+
+  <script>
+    // Select all buttons with class "reveal-btn"
+    const buttons = document.querySelectorAll(".reveal-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        // When clicked, show the button's name attribute value
+        alert(`Button name: ${btn.getAttribute("name")}`);
+      });
+    });
+  </script>
+</body>
+</html>
